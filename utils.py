@@ -1,3 +1,4 @@
+import matplotlib.patheffects as PathEffects
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
@@ -44,4 +45,18 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
             marker='o',
             s=100,
             label='Test set',
+        )
+
+
+def plot_projection(x, colors):
+    f = plt.figure(figsize=(8, 8))
+    ax = plt.subplot(aspect='equal')
+    for i in range(10):
+        plt.scatter(x[colors == i, 0], x[colors == i, 1])
+
+    for i in range(10):
+        xtext, ytext = np.median(x[colors == i, :], axis=0)
+        txt = ax.text(xtext, ytext, str(i), fontsize=24)
+        txt.set_path_effects(
+            [PathEffects.Stroke(linewidth=5, foreground="w"), PathEffects.Normal()]
         )
