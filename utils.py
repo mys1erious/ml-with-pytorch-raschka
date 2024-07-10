@@ -60,3 +60,8 @@ def plot_projection(x, colors):
         txt.set_path_effects(
             [PathEffects.Stroke(linewidth=5, foreground="w"), PathEffects.Normal()]
         )
+
+
+def lin_regplot(X, y, model):
+    plt.scatter(X, y, c='steelblue', edgecolor='white', s=70)
+    plt.plot(X, model.predict(X), color='black', lw=2)
