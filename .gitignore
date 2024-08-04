@@ -162,3 +162,5 @@ cython_debug/
 .idea/
 
 datasets/
+c18_gnns/processed/
+c18_gnns/raw/
